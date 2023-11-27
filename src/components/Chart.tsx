@@ -1,13 +1,19 @@
 "use client"
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
+import { PieItemIdentifier, DefaultizedPieValueType } from '@mui/x-charts/models';
+import { ChartProps } from '@/types';
 
-interface Props {
-    data: { id: number, value: number, label: string }[],
-}
+export default function BasicPie({ data, onClick }: ChartProps) {
 
+    const handleClick = (
+        event: React.MouseEvent<SVGPathElement, MouseEvent>,
+        itemIdentifier: PieItemIdentifier,
+        item: DefaultizedPieValueType,
+    ) => {
+        if (onClick) onClick(item, event)
+    };
 
-export default function BasicPie({ data }: Props) {
     return (
         <PieChart
             series={[{
@@ -17,6 +23,7 @@ export default function BasicPie({ data }: Props) {
             }]}
             width={700}
             height={350}
+            onClick={handleClick}
         />
     )
 }

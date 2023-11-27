@@ -1,3 +1,9 @@
+import { DefaultizedPieValueType } from '@mui/x-charts/models';
+export interface ChartProps {
+    data: { id: number, value: number, label: string }[],
+    onClick?: (item?: DefaultizedPieValueType, event?: React.MouseEvent<SVGPathElement, MouseEvent>) => void,
+}
+
 export interface State {
     id: number;
     attributes?: {
@@ -20,6 +26,9 @@ export interface City {
         state?: {
             data: City
         }
+        colleges?: {
+            data: College[]
+        }
     }
 }
 
@@ -28,5 +37,16 @@ export interface College {
     attributes?: {
         name: string;
         slug: string;
+    }
+}
+
+export interface Course {
+    id: number;
+    attributes?: {
+        name: string;
+        slug: string;
+        colleges?: {
+            data: College[]
+        }
     }
 }
