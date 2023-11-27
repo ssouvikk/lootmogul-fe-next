@@ -5,14 +5,15 @@ import { useRouter } from 'next/navigation'
 
 interface Props extends ChartProps {
     heading: string
+    redirectionUrl: string
 }
 
-const StateWiseCollegeChart = ({ data, heading }: Props) => {
+const StateWiseCollegeChart = ({ data, heading, redirectionUrl }: Props) => {
     const router = useRouter()
     return (
         <>
             <h2> {heading} </h2>
-            <Chart data={data} onClick={(item) => router.push(`/states/${item?.id}`)} />
+            <Chart data={data} onClick={(item) => router.push(`/${redirectionUrl}/${item?.id}`)} />
         </>
     )
 }

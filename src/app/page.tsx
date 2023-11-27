@@ -1,5 +1,6 @@
+import { CollegeDistribution } from '@/components';
 import { StateService, CoursesService } from '@/services'
-import CollegeDistribution from './CollegeDistribution'
+
 
 const Home = async () => {
 
@@ -32,8 +33,8 @@ const Home = async () => {
   return (
     <>
       <div style={{ maxWidth: '50rem' }}>
-        <CollegeDistribution data={stateWiseChartData} heading='College distribution state wise' />
-        <CollegeDistribution data={courseWiseChartData} heading='College distribution course wise' />
+        <CollegeDistribution data={stateWiseChartData} heading='College distribution state wise' redirectionUrl='states' />
+        <CollegeDistribution data={courseWiseChartData} heading='College distribution course wise' redirectionUrl='courses' />
       </div>
     </>
   )
