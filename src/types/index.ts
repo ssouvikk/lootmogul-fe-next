@@ -3,8 +3,11 @@ export interface State {
     attributes?: {
         name: string;
         slug: string;
-        cities? : {
+        cities?: {
             data: City[]
+        }
+        colleges?: {
+            data: College[]
         }
     }
 }
@@ -14,9 +17,16 @@ export interface City {
     attributes?: {
         name: string;
         slug: string;
-        state? : {
+        state?: {
             data: City
         }
     }
 }
 
+export interface College {
+    id: number;
+    attributes?: {
+        name: string;
+        slug: string;
+    }
+}

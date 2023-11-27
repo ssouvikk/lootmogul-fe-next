@@ -2,20 +2,21 @@
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 
-export default function BasicPie() {
+interface Props {
+    data: { id: number, value: number, label: string }[],
+}
+
+
+export default function BasicPie({ data }: Props) {
     return (
         <PieChart
-            series={[
-                {
-                    data: [
-                        { id: 0, value: 10, label: 'series A' },
-                        { id: 1, value: 15, label: 'series B' },
-                        { id: 2, value: 20, label: 'series C' },
-                    ],
-                },
-            ]}
-            width={400}
-            height={200}
+            series={[{
+                data,
+                innerRadius: 30,
+                outerRadius: 100,
+            }]}
+            width={700}
+            height={350}
         />
     )
 }
