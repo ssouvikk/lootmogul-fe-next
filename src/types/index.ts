@@ -1,33 +1,22 @@
-export interface User {
-    /*    id?: number;
-       email?: string; */
-   
-       id?: number;
-       name?: string;
-       email?: number;
-       liked?: boolean;
-   }
-   
-   export interface Product {
-       id: number;
-       name?: string;
-       title?: string;
-       body?: string;
-       price: number;
-       qty: number;
-       liked?: boolean
-       attributes?: {
-           name?: string;
-           title?: string;
-           body?: string;
-           price: number;
-           qty: number;
-       }
-   }
-   
-   export interface Post {
-       id: number;
-       title: string;
-       body: string;
-       userId: number
-   }
+export interface State {
+    id: number;
+    attributes?: {
+        name: string;
+        slug: string;
+        cities? : {
+            data: City[]
+        }
+    }
+}
+
+export interface City {
+    id: number;
+    attributes?: {
+        name: string;
+        slug: string;
+        state? : {
+            data: City
+        }
+    }
+}
+
