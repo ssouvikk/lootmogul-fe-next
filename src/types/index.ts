@@ -37,6 +37,9 @@ export interface College {
     attributes?: {
         name: string;
         slug: string;
+        courses: Course[]
+        state: State
+        city: City
     }
 }
 
